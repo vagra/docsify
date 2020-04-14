@@ -60,7 +60,7 @@
     ]
   },
   "dependencies": {
-    "marked": "^0.7.0",
+    "marked": "git+ssh://git@github.com/vagra/marked.git",
     "medium-zoom": "^1.0.5",
     "opencollective-postinstall": "^2.0.2",
     "prismjs": "^1.19.0",

@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Mono|Source+Sans+Pro:300,400,600')
+@import url('https://fonts.lug.ustc.edu.cn/css?family=Roboto+Mono|Source+Sans+Pro:300,400,600')
 
 $color-primary = #42b983
 $color-bg = #fff
 $color-text = #34495e
-$sidebar-width = 300px
+$sidebar-width = 480px
 
 @import 'basic/_layout'
 @import 'basic/_coverpage'
@@ -17,15 +17,13 @@ body
   color #364149
 
   li
-    margin 6px 0 6px 0
+    margin 0
 
   ul li a
     color #505d6b
     font-size 14px
     font-weight normal
-    overflow hidden
     text-decoration none
-    text-overflow ellipsis
     white-space nowrap
 
     &:hover
@@ -35,9 +33,10 @@ body
     padding 0
 
   ul li.active > a
-    border-right 2px solid
+    border-bottom 2px solid
     color var(--theme-color, $color-primary)
     font-weight 600
+    display inline-block
 
 .app-sub-sidebar
   li
@@ -47,7 +46,7 @@ body
       float left
 
 /* markdown content found on pages */
-.markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4, .markdown-section strong
+.markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section strong
   color #2c3e50
   font-weight 600
 
@@ -66,16 +65,6 @@ body
 .markdown-section h3
   font-size 1.5rem
   margin 40px 0 0.6rem
-
-.markdown-section h4
-  font-size 1.25rem
-
-.markdown-section h5
-  font-size 1rem
-
-.markdown-section h6
-  color #777
-  font-size 1rem
 
 .markdown-section figure, .markdown-section p
   margin 1.2em 0

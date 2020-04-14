@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Inconsolata|Inconsolata-Bold')
+@import url('https://fonts.lug.ustc.edu.cn/css?family=Inconsolata|Inconsolata-Bold')
 
 $color-primary = #0074d9
 $color-bg = #fff
 $color-text = #34495e
-$sidebar-width = 16rem
+$sidebar-width = 32rem
 
 @import 'basic/_layout'
 @import 'basic/_coverpage'
@@ -20,18 +20,26 @@ $sidebar-width = 16rem
   li
     list-style none
     margin 0
-    padding 0.2em 0 0.2em 0
 
   ul li ul
     padding 0
 
+  ul li a
+    color #505d6b
+    font-size 14px
+    font-weight normal
+    text-decoration none
+    white-space nowrap
+
   li.active
     a
+      border-bottom 2px solid
       color #333
+      display inline-block
 
     background-color #eee
 
-.markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4, .markdown-section strong
+.markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section strong
   color #333
   font-weight 400
 
@@ -61,16 +69,6 @@ $sidebar-width = 16rem
 .markdown-section h3
   font-size 1.5rem
   margin 52px 0 1.2rem
-
-.markdown-section h4
-  font-size 1.25rem
-
-.markdown-section h5
-  font-size 1rem
-
-.markdown-section h6
-  color #777
-  font-size 1rem
 
 .markdown-section figure, .markdown-section p, .markdown-section ul, .markdown-section ol
   margin 1.2em 0
