@@ -314,19 +314,20 @@ for level in 1..108
     margin 0
     padding 0
     &::before
-      content     '"%s>"' % level
-      font-size   0.8rem
+      content     '"H%s"' % level
+      font-size   0.7rem
       padding     0 0.3rem
 
 for level in 1..108
-  .lv{level}::marker
-    content     '"%s>"' % level
-    font-size   0.6rem
+  .lv{level}::before
+    content     '"H%s"' % level
+    font-size   0.5rem
+    padding     0 0.2rem
 
 /* markdown content found on pages */
 .markdown-section
   margin 0 auto
-  max-width 80%
+  max-width 95%
   padding 30px 15px 40px 15px
   position relative
 
