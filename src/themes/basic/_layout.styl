@@ -83,6 +83,7 @@ li input[type='checkbox']
   margin 25px 60px 0 0
   position absolute
   right 0
+  font-size 16px
   text-align right
   z-index 10
 
@@ -103,7 +104,6 @@ li input[type='checkbox']
 
   a
     color inherit
-    font-size 16px
     text-decoration none
     transition color 0.3s
 
@@ -215,7 +215,7 @@ main.hidden
   > h1
     margin 0 auto 1rem
     font-size 1.5rem
-    font-weight 300
+    font-weight lighter
     text-align center
 
     a
@@ -239,7 +239,7 @@ main.hidden
     padding 0
 
   li > p
-    font-weight 700
+    font-weight bold
     margin 0
 
   ul, ul li
@@ -310,7 +310,7 @@ body.sticky
 for level in 1..108
   .markdown-section h{level}
     display inline-block
-    font-weight 600
+    font-weight bold
     margin 0
     padding 0
     &::before
@@ -457,6 +457,12 @@ body.close
     background-color transparent
     width auto
     padding 30px 30px 10px 10px
+
+  .markdown-section
+    max-width: 98%
+
+  body
+    font-size 18px
 
   body.close
     .sidebar
