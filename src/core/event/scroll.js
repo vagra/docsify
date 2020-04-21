@@ -1,3 +1,4 @@
+import { isMobile } from '../util/env';
 import * as dom from '../util/dom';
 import config from '../config';
 import Tweezer from 'tweezer.js';
@@ -99,10 +100,10 @@ function updateTree(active) {
   while (test && test.className !== 'sidebar-nav') {
     test.classList.add('parent');
 
-    let siblings = test.parentNode.childNodes;
+    let brothers = test.parentNode.childNodes;
 
-    siblings &&
-      siblings.forEach(node => {
+    brothers &&
+      brothers.forEach(node => {
         if (
           node.tagName === 'LI' &&
           node.nextSibling &&
@@ -174,6 +175,10 @@ export function scrollActiveSidebar(router) {
     if (href) {
       nav[decodeURIComponent(href)] = li;
     }
+  }
+
+  if (isMobile) {
+    // return;
   }
 
   const path = router.getCurrentPath();
