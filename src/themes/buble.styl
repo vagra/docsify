@@ -39,16 +39,13 @@ $sidebar-width = 32rem
 
     background-color #eee
 
-.markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section strong
-  color #333
-  font-weight bold
-
+/* markdown content found on pages */
 .markdown-section strong
   color #333
   font-weight bold
 
 .markdown-section a
-  color var(--theme-color, $color-primary)
+  color #505d6b
 
 .markdown-section p, .markdown-section ul, .markdown-section ol
   line-height 1.6rem
@@ -56,19 +53,29 @@ $sidebar-width = 32rem
   word-spacing 0.05rem
 
 .markdown-section h1
+  font-weight normal
   font-size 2rem
-  font-weight bold
   margin 0 0 1rem
 
 .markdown-section h2
+  font-weight normal
   font-size 1.8rem
-  font-weight bold
   margin 0 0 1rem 0
   padding 1rem 0 0 0
 
 .markdown-section h3
+  font-weight normal
   font-size 1.5rem
   margin 52px 0 1.2rem
+
+.markdown-section h4, .markdown-section h5, .markdown-section h6
+  font-weight normal;
+  margin 0
+  padding 0
+
+.markdown-section p
+  font-family  "Source Sans Pro", Georgia, "Noto Serif SC", "Nimbus Roman No9 L", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", "Source Han Serif CN", STSong, "AR PL New Sung", "AR PL SungtiL GB", NSimSun, SimSun, "TW\-Sung", "WenQuanYi Bitmap Song", "AR PL UMing CN", "AR PL UMing HK", "AR PL UMing TW", "AR PL UMing TW MBE", PMingLiU, MingLiU, serif
+  font-size 20px
 
 .markdown-section figure, .markdown-section p, .markdown-section ul, .markdown-section ol
   margin 1.2em 0

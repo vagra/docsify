@@ -51,8 +51,8 @@ body
   -moz-osx-font-smoothing grayscale
   -webkit-font-smoothing antialiased
   color $color-text
-  font-family 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif
-  font-size 15px
+  font-family "Source Sans Pro", -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+  font-size 14px
   letter-spacing 0
   margin 0
   overflow-x hidden
@@ -192,9 +192,6 @@ main.hidden
   text-decoration none
   transition all 0.3s
 
-  span
-    color $color-text
-
   &:hover
     text-decoration underline
 
@@ -227,8 +224,13 @@ main.hidden
       position static
 
   .sidebar-nav
-    line-height 2em
+    line-height 1.6em
     padding-bottom 40px
+
+  li
+    display flex
+    &:before
+      content '-'
 
   li.collapse
     .app-sub-sidebar
@@ -237,6 +239,7 @@ main.hidden
   ul
     margin 0 0 0 15px
     padding 0
+    display none
 
   li > p
     font-weight bold
@@ -309,10 +312,7 @@ body.sticky
 /* support for 108 levels */
 for level in 1..108
   .markdown-section h{level}
-    display inline-block
-    font-weight bold
-    margin 0
-    padding 0
+    display block
     &::before
       content     '"H%s"' % level
       font-size   0.7rem
@@ -462,7 +462,7 @@ body.close
     max-width: 98%
 
   body
-    font-size 18px
+    font-size 16px
 
   body.close
     .sidebar
@@ -496,3 +496,22 @@ body.close
 
   40%, 80%
     transform rotate(10deg)
+
+
+.sidebar-nav
+
+  > ul,
+  > ul > ul
+    display block !important
+
+.parent,
+.sibling
+  display block !important
+
+.closed
+  &:before
+    content '+' !important
+
+.current
+  span
+    color #c94922

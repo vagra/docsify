@@ -1,4 +1,3 @@
-import { isMobile } from '../util/env';
 import * as dom from '../util/dom';
 import config from '../config';
 import Tweezer from 'tweezer.js';
@@ -70,12 +69,14 @@ function highlight(path) {
   li.classList.add('active');
   active = li;
 
+  updateTree(active);
+
   // Scroll into view
   // https://github.com/vuejs/vuejs.org/blob/master/themes/vue/source/js/common.js#L282-L297
   if (!hoverOver && dom.body.classList.contains('sticky')) {
     const height = sidebar.clientHeight;
     const curOffset = 0;
-    const cur = active.offsetTop + active.clientHeight + 40;
+    const cur = active.offsetTop + active.clientHeight + height / 2;
     const isInView =
       active.offsetTop >= wrap.scrollTop && cur <= wrap.scrollTop + height;
     const notThan = cur - curOffset < height;
@@ -83,6 +84,58 @@ function highlight(path) {
 
     sidebar.scrollTop = top;
   }
+}
+
+function updateTree(active) {
+  let prev_parents = dom.findAll('.parent');
+  let prev_siblings = dom.findAll('.sibling');
+  let prev_closeds = dom.findAll('.closed');
+
+  prev_parents.forEach(node => node.classList.remove('parent'));
+  prev_siblings.forEach(node => node.classList.remove('sibling'));
+  prev_closeds.forEach(node => node.classList.remove('closed'));
+
+  let test = active.parentNode;
+  while (test && test.className !== 'sidebar-nav') {
+    test.classList.add('parent');
+
+    let siblings = test.parentNode.childNodes;
+
+    siblings &&
+      siblings.forEach(node => {
+        if (
+          node.tagName === 'LI' &&
+          node.nextSibling &&
+          node.nextSibling.tagName === 'UL' &&
+          node.nextSibling !== test
+        ) {
+          node.classList.add('closed');
+        }
+      });
+
+    test = test.parentNode;
+  }
+
+  let siblings = active.parentNode.childNodes;
+  siblings &&
+    siblings.forEach(sbl => {
+      if (sbl.tagName === 'UL') {
+        sbl.classList.add('sibling');
+      }
+
+      let childs = sbl.childNodes;
+
+      childs &&
+        childs.forEach(cld => {
+          if (
+            cld.tagName === 'LI' &&
+            cld.nextSibling &&
+            cld.nextSibling.tagName === 'UL'
+          ) {
+            cld.classList.add('closed');
+          }
+        });
+    });
 }
 
 function getNavKey(path, id) {
@@ -123,10 +176,6 @@ export function scrollActiveSidebar(router) {
     }
   }
 
-  if (isMobile) {
-    return;
-  }
-
   const path = router.getCurrentPath();
   dom.off('scroll', () => highlight(path));
   dom.on('scroll', () => highlight(path));
@@ -143,14 +192,25 @@ export function scrollIntoView(path, id) {
     return;
   }
   const topMargin = config().topMargin;
-  const section = dom.find('#' + id);
-  section && scrollTo(section, topMargin);
 
-  const li = nav[getNavKey(path, id)];
+  let prev_sections = dom.findAll('.current');
+  prev_sections.forEach(node => node.classList.remove('current'));
+
+  const section = dom.find('#' + id);
+  if (section) {
+    section.classList.add('current');
+    scrollTo(section, topMargin);
+  }
+
   const sidebar = dom.getNode('.sidebar');
   const active = dom.find(sidebar, 'li.active');
   active && active.classList.remove('active');
-  li && li.classList.add('active');
+
+  const li = nav[getNavKey(decodeURIComponent(path), decodeURIComponent(id))];
+  if (li) {
+    li.classList.add('active');
+    updateTree(li);
+  }
 }
 
 const scrollEl = dom.$.scrollingElement || dom.$.documentElement;

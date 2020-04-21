@@ -1,4 +1,4 @@
-@import url('https://fonts.lug.ustc.edu.cn/css?family=Roboto+Mono|Source+Sans+Pro:300,400,600')
+@import url('https://fonts.lug.ustc.edu.cn/css2?family=Noto+Serif+SC:wght@300;500;700&family=Roboto+Mono:wght@300;500;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap')
 
 $color-primary = #42b983
 $color-bg = #fff
@@ -21,7 +21,6 @@ body
 
   ul li a
     color #505d6b
-    font-size 14px
     font-weight normal
     text-decoration none
     white-space nowrap
@@ -46,28 +45,39 @@ body
       float left
 
 /* markdown content found on pages */
-.markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section strong
+.markdown-section strong
   color #2c3e50
   font-weight bold
 
 .markdown-section a
-  color var(--theme-color, $color-primary)
-  font-weight bold
+  color #505d6b
 
 .markdown-section h1
+  font-weight normal
   font-size 2rem
   margin 0 0 1rem
 
 .markdown-section h2
+  font-weight normal
   font-size 1.75rem
   margin 45px 0 0.8rem
 
 .markdown-section h3
+  font-weight normal
   font-size 1.5rem
   margin 40px 0 0.6rem
 
+.markdown-section h4, .markdown-section h5, .markdown-section h6
+  font-weight normal;
+  margin 0
+  padding 0
+
+.markdown-section p
+  font-family  "Source Sans Pro", Georgia, "Noto Serif SC", "Nimbus Roman No9 L", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", "Source Han Serif CN", STSong, "AR PL New Sung", "AR PL SungtiL GB", NSimSun, SimSun, "TW\-Sung", "WenQuanYi Bitmap Song", "AR PL UMing CN", "AR PL UMing HK", "AR PL UMing TW", "AR PL UMing TW MBE", PMingLiU, MingLiU, serif
+  font-size 20px
+
 .markdown-section figure, .markdown-section p
-  margin 1.2em 0
+  margin 0.4em 0 1em 0
 
 .markdown-section p, .markdown-section ul, .markdown-section ol
   line-height 1.6rem
