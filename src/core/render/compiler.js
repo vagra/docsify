@@ -262,7 +262,7 @@ export class Compiler {
       }
 
       const tree = this.cacheTree[currentPath] || genTree(toc, level);
-      html = treeTpl(tree, '<ul>{inner}</ul>');
+      html = treeTpl(tree, '<ul class="app-sub-sidebar">{inner}</ul>');
       this.cacheTree[currentPath] = tree;
     }
 
@@ -294,7 +294,7 @@ export class Compiler {
 
     cacheTree[currentPath] = tree;
     this.toc = [];
-    return treeTpl(tree);
+    return treeTpl(tree, '<ul class="app-sub-sidebar">{inner}</ul>');
   }
 
   header(text, level) {

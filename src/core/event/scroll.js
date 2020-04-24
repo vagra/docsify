@@ -1,6 +1,7 @@
 import { isMobile } from '../util/env';
 import * as dom from '../util/dom';
 import config from '../config';
+import { removeParams } from '../router/util';
 import Tweezer from 'tweezer.js';
 
 const nav = {};
@@ -35,7 +36,7 @@ function highlight(path) {
 
   const sidebar = dom.getNode('.sidebar');
   const anchors = dom.findAll('.anchor');
-  const wrap = dom.find(sidebar, '.sidebar-nav');
+  const wrap = dom.find(sidebar, '.app-sub-sidebar');
   let active = dom.find(sidebar, 'li.active');
   const doc = document.documentElement;
   const top = ((doc && doc.scrollTop) || document.body.scrollTop) - coverHeight;
@@ -59,8 +60,7 @@ function highlight(path) {
     return;
   }
 
-  const li =
-    nav[getNavKey(decodeURIComponent(path), last.getAttribute('data-id'))];
+  const li = nav[getNavKey(path, last.getAttribute('data-id'))];
 
   if (!li || li === active) {
     return;
@@ -88,59 +88,28 @@ function highlight(path) {
 }
 
 function updateTree(active) {
-  let prev_parents = dom.findAll('.parent');
-  let prev_siblings = dom.findAll('.sibling');
-  let prev_closeds = dom.findAll('.closed');
+  let prevParents = dom.findAll('.parent');
+  let prevWifes = dom.findAll('.wife');
+  let prevChanges = dom.findAll('.change');
+  let prevExpands = dom.findAll('.expand');
 
-  prev_parents.forEach(node => node.classList.remove('parent'));
-  prev_siblings.forEach(node => node.classList.remove('sibling'));
-  prev_closeds.forEach(node => node.classList.remove('closed'));
+  prevParents.forEach(node => node.classList.remove('parent'));
+  prevWifes.forEach(node => node.classList.remove('wife'));
+  prevChanges.forEach(node => node.classList.remove('change'));
+  prevExpands.forEach(node => node.classList.remove('expand'));
 
-  let test = active.parentNode;
-  while (test && test.className !== 'sidebar-nav') {
-    test.classList.add('parent');
-
-    let brothers = test.parentNode.childNodes;
-
-    brothers &&
-      brothers.forEach(node => {
-        if (
-          node.tagName === 'LI' &&
-          node.nextSibling &&
-          node.nextSibling.tagName === 'UL' &&
-          node.nextSibling !== test
-        ) {
-          node.classList.add('closed');
-        }
-      });
-
-    test = test.parentNode;
+  let father = active.parentNode;
+  while (father && father.className !== 'app-sub-sidebar') {
+    father.classList.add('parent');
+    father = father.parentNode;
   }
 
-  let siblings = active.parentNode.childNodes;
-  siblings &&
-    siblings.forEach(sbl => {
-      if (sbl.tagName === 'UL') {
-        sbl.classList.add('sibling');
-      }
-
-      let childs = sbl.childNodes;
-
-      childs &&
-        childs.forEach(cld => {
-          if (
-            cld.tagName === 'LI' &&
-            cld.nextSibling &&
-            cld.nextSibling.tagName === 'UL'
-          ) {
-            cld.classList.add('closed');
-          }
-        });
-    });
+  let wife = active.lastChild;
+  wife.nodeName === 'UL' && wife.classList.add('wife');
 }
 
 function getNavKey(path, id) {
-  return `${path}?id=${id}`;
+  return `${decodeURIComponent(path)}?id=${decodeURIComponent(id)}`;
 }
 
 export function scrollActiveSidebar(router) {
@@ -181,7 +150,7 @@ export function scrollActiveSidebar(router) {
     // return;
   }
 
-  const path = router.getCurrentPath();
+  const path = removeParams(router.getCurrentPath());
   dom.off('scroll', () => highlight(path));
   dom.on('scroll', () => highlight(path));
   dom.on(sidebar, 'mouseover', () => {
@@ -198,8 +167,8 @@ export function scrollIntoView(path, id) {
   }
   const topMargin = config().topMargin;
 
-  let prev_sections = dom.findAll('.current');
-  prev_sections.forEach(node => node.classList.remove('current'));
+  let prevSections = dom.findAll('.current');
+  prevSections.forEach(node => node.classList.remove('current'));
 
   const section = dom.find('#' + id);
   if (section) {
@@ -211,7 +180,7 @@ export function scrollIntoView(path, id) {
   const active = dom.find(sidebar, 'li.active');
   active && active.classList.remove('active');
 
-  const li = nav[getNavKey(decodeURIComponent(path), decodeURIComponent(id))];
+  const li = nav[getNavKey(path, id)];
   if (li) {
     li.classList.add('active');
     updateTree(li);

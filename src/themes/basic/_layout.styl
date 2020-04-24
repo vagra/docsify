@@ -52,7 +52,7 @@ body
   -webkit-font-smoothing antialiased
   color $color-text
   font-family "Source Sans Pro", -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
-  font-size 14px
+  font-size 15px
   letter-spacing 0
   margin 0
   overflow-x hidden
@@ -83,7 +83,7 @@ li input[type='checkbox']
   margin 25px 60px 0 0
   position absolute
   right 0
-  font-size 16px
+  font-size 15px
   text-align right
   z-index 10
 
@@ -117,7 +117,7 @@ li input[type='checkbox']
   /* navbar dropdown */
   li
     display inline-block
-    margin 0 0.5rem
+    margin 0 1rem
     padding 5px 0
     position relative
     cursor pointer
@@ -212,7 +212,7 @@ main.hidden
   > h1
     margin 0 auto 1rem
     font-size 1.5rem
-    font-weight lighter
+    font-weight 300
     text-align center
 
     a
@@ -224,13 +224,8 @@ main.hidden
       position static
 
   .sidebar-nav
-    line-height 1.6em
+    line-height 2em
     padding-bottom 40px
-
-  li
-    display flex
-    &:before
-      content '-'
 
   li.collapse
     .app-sub-sidebar
@@ -239,10 +234,9 @@ main.hidden
   ul
     margin 0 0 0 15px
     padding 0
-    display none
 
   li > p
-    font-weight bold
+    font-weight 700
     margin 0
 
   ul, ul li
@@ -276,11 +270,11 @@ main.hidden
   outline none
   padding 10px
   position absolute
-  top 0
+  bottom 20px
   left 0
   text-align center
   transition opacity 0.3s
-  width $sidebar-width - 16px
+  width 32px
   z-index 30
   cursor pointer
 
@@ -327,7 +321,7 @@ for level in 1..108
 /* markdown content found on pages */
 .markdown-section
   margin 0 auto
-  max-width 95%
+  max-width 93%
   padding 30px 15px 40px 15px
   position relative
 
@@ -462,7 +456,7 @@ body.close
     max-width: 98%
 
   body
-    font-size 16px
+    font-size 18px
 
   body.close
     .sidebar
@@ -498,19 +492,49 @@ body.close
     transform rotate(10deg)
 
 
-.sidebar-nav
+.app-sub-sidebar
 
-  > ul,
-  > ul > ul
-    display block !important
+  ul
+    display none
 
-.parent,
-.sibling
-  display block !important
+  ul.parent,
+  ul.wife,
+  ul.expand
+    display block
+  
+  ul.parent.expand,
+  ul.wife.expand
+    display none
 
-.closed
-  &:before
-    content '+' !important
+  li span
+    display block
+    width 20px
+    font-family monospace
+    font-weight bold
+    font-size 20px
+    float left
+    &:after
+        content '-'  
+    &.change
+      &:after
+        content '-'
+
+  li.has-children
+    > span
+      &:after
+        content '+'
+    > span.change
+      &:after
+        content '-'
+
+  li.parent,
+  li.has-children.active
+    > span
+      &:after
+        content '-'
+    > span.change
+      &:after
+        content '+'
 
 .current
   span

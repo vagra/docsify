@@ -17,11 +17,10 @@ body
   color #c8c8c8
 
   li
-    margin 0
+    margin 6px 15px 6px 0
 
   ul li a
     color #c8c8c8
-    font-size 14px
     text-decoration none
     white-space nowrap
 
@@ -32,36 +31,34 @@ body
     padding 0
 
   ul li.active > a
-    border-bottom 2px solid
     color var(--theme-color, $color-primary)
-    font-weight bold
-    display inline-block
+    font-weight 600
 
 /* markdown content found on pages */
 .markdown-section strong
   color #657b83
-  font-weight bold
+  font-weight 600
 
 .markdown-section a
   color #505d6b
 
 .markdown-section h1
-  font-weight normal
   font-size 2rem
   margin 0 0 1rem
 
 .markdown-section h2
-  font-weight normal
   font-size 1.75rem
   margin 45px 0 0.8rem
 
 .markdown-section h3
-  font-weight normal
   font-size 1.5rem
   margin 40px 0 0.6rem
 
+.markdown-section h1, .markdown-section h2, .markdown-section h3
+  font-weight 500
+  
 .markdown-section h4, .markdown-section h5, .markdown-section h6
-  font-weight normal;
+  font-weight 500
   margin 0
   padding 0
 
@@ -86,7 +83,7 @@ body
   padding-left 20px
 
 .markdown-section blockquote p
-  font-weight bold
+  font-weight 600
   margin-left 0
 
 .markdown-section iframe
@@ -209,7 +206,7 @@ pre::after
   color #ccc
   content attr(data-lang)
   font-size 0.6rem
-  font-weight bold
+  font-weight 600
   height 15px
   line-height 15px
   padding 5px 10px 0
