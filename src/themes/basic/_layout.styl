@@ -51,7 +51,7 @@ body
   -moz-osx-font-smoothing grayscale
   -webkit-font-smoothing antialiased
   color $color-text
-  font-family "Source Sans Pro", -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+  font-family Verdana, -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif
   font-size 15px
   letter-spacing 0
   margin 0
@@ -309,8 +309,8 @@ for level in 1..108
     display block
     &::before
       content     '"H%s"' % level
-      font-size   0.7rem
-      padding     0 0.3rem
+      font-size   0.6rem
+      margin      0 0.8em 0 -1.2em
 
 for level in 1..108
   .lv{level}::before
@@ -434,14 +434,14 @@ body.close
     overflow-x hidden
 
   .sidebar
-    left - $sidebar-width
+    left -100vw
+    width 100vw
     transition transform 250ms ease-out
 
   .content
     left 0
     max-width 100vw
     position static
-    padding-top 20px
     transition transform 250ms ease
 
   .app-nav, .github-corner
@@ -453,23 +453,23 @@ body.close
     padding 30px 30px 10px 10px
 
   .markdown-section
-    max-width: 98%
+    max-width: 99%
 
-  body
-    font-size 18px
+    p
+      font-size 20px
 
   body.close
     .sidebar
-      transform translateX($sidebar-width)
+      transform translateX(100vw)
 
     .sidebar-toggle
       background-color rgba($color-bg, 0.8)
       transition 1s background-color
-      width $sidebar-width - 16px
+      width 32px
       padding 10px
 
     .content
-      transform translateX($sidebar-width)
+      transform translateX(100vw)
 
     .app-nav, .github-corner
       display none
@@ -509,8 +509,8 @@ body.close
   li span
     display block
     width 20px
-    font-family monospace
-    font-weight bold
+    font-family Consolas, "Courier New", "Lucida Console", Monaco, Courier, monospace
+    font-weight 700
     font-size 20px
     float left
     &:after
