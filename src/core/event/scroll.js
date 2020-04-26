@@ -85,6 +85,7 @@ function highlight(path) {
 
     sidebar.scrollTop = top;
   }
+  sidebar.scrollLeft = 9999;
 }
 
 function updateTree(active) {

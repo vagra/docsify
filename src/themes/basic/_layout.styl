@@ -226,6 +226,7 @@ main.hidden
   .sidebar-nav
     line-height 2em
     padding-bottom 40px
+    display grid
 
   li.collapse
     .app-sub-sidebar
@@ -245,6 +246,7 @@ main.hidden
   ul li a
     border-bottom none
     display block
+    margin-left 20px
 
   ul li ul
     padding-left 20px
@@ -507,12 +509,9 @@ body.close
     display none
 
   li span
-    display block
-    width 20px
+    position  absolute
     font-family Consolas, "Courier New", "Lucida Console", Monaco, Courier, monospace
-    font-weight 700
-    font-size 20px
-    float left
+    font-size 24px
     &:after
         content '-'  
     &.change
