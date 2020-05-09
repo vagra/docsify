@@ -22,8 +22,8 @@ Create a `sw.js` file in your documents root directory and copy the following co
 const RUNTIME = 'docsify'
 const HOSTNAME_WHITELIST = [
   self.location.hostname,
-  'fonts-gstatic.lug.ustc.edu.cn',
-  'fonts.lug.ustc.edu.cn',
+  'fonts.gstatic.com',
+  'fonts.googleapis.com',
   'cdn.jsdelivr.net'
 ]
 

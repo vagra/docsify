@@ -2,7 +2,6 @@ import { isMobile } from '../util/env';
 import * as dom from '../util/dom';
 import { removeParams } from '../router/util';
 import config from '../config';
-import { removeParams } from '../router/util';
 import Tweezer from 'tweezer.js';
 
 const nav = {};

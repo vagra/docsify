@@ -84,7 +84,7 @@ export function cover() {
  * Render tree
  * @param  {Array} toc Array of TOC section links
  * @param  {String} tpl TPL list
- * @param  {Boolean} all using specified TPL for all level(true), or root only(false)
+ * @param  {Boolean} using specified TPL for all level(true), or root only(false)
  * @return {String} Rendered tree
  */
 export function tree(toc, tpl = '<ul>{inner}</ul>', all = false) {
