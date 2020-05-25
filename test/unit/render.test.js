@@ -1,5 +1,5 @@
-const { expect } = require('chai');
 const { init, expectSameDom } = require('../_helper');
+const { expect } = require('chai');
 
 describe('render', function() {
   it('important content (tips)', async function() {
@@ -170,7 +170,7 @@ describe('render', function() {
   describe('heading', function() {
     it('h1', async function() {
       const { docsify } = await init();
-      const output = docsify.compiler.compile('# h1 tag');
+      const output = docsify.compiler.compile('#1 h1 tag');
       expectSameDom(
         output,
         `
@@ -184,7 +184,7 @@ describe('render', function() {
 
     it('h2', async function() {
       const { docsify } = await init();
-      const output = docsify.compiler.compile('## h2 tag');
+      const output = docsify.compiler.compile('#2 h2 tag');
       expectSameDom(
         output,
         `
@@ -198,7 +198,7 @@ describe('render', function() {
 
     it('h3', async function() {
       const { docsify } = await init();
-      const output = docsify.compiler.compile('### h3 tag');
+      const output = docsify.compiler.compile('#3 h3 tag');
       expectSameDom(
         output,
         `
@@ -212,7 +212,7 @@ describe('render', function() {
 
     it('h4', async function() {
       const { docsify } = await init();
-      const output = docsify.compiler.compile('#### h4 tag');
+      const output = docsify.compiler.compile('#4 h4 tag');
       expectSameDom(
         output,
         `
@@ -226,7 +226,7 @@ describe('render', function() {
 
     it('h5', async function() {
       const { docsify } = await init();
-      const output = docsify.compiler.compile('##### h5 tag');
+      const output = docsify.compiler.compile('#5 h5 tag');
       expectSameDom(
         output,
         `
@@ -240,7 +240,7 @@ describe('render', function() {
 
     it('h6', async function() {
       const { docsify } = await init();
-      const output = docsify.compiler.compile('###### h6 tag');
+      const output = docsify.compiler.compile('#6 h6 tag');
       expectSameDom(
         output,
         `
