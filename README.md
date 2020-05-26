@@ -29,7 +29,7 @@
   </a>
 </p>
 
-## Links
+#2 Links
 
 - [`develop` branch preview](https://docsifyjs.netlify.com/)
 - [Documentation](https://docsify.js.org)
@@ -38,7 +38,7 @@
 - [Awesome docsify](https://github.com/docsifyjs/awesome-docsify)
 - [Community chat](https://gitter.im/docsifyjs/Lobby)
 
-## Features
+#2 Features
 
 - No statically built html files
 - Simple and lightweight (~21kB gzipped)
@@ -49,28 +49,28 @@
 - Support SSR ([example](https://github.com/docsifyjs/docsify-ssr-demo))
 - Support embedded files
 
-## Quick start
+#2 Quick start
 
 Look at [this tutorial](https://docsify.js.org/#/quickstart)
 
 [![Edit 307qqv236](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/307qqv236)
 
-## Showcase
+#2 Showcase
 
 These projects are using docsify to generate their sites. Pull requests welcome :blush:
 
 Move to [awesome-docsify](https://github.com/docsifyjs/awesome-docsify#showcase)
 
-## Similar projects
+#2 Similar projects
 
 | Project                                          | Description                              |
 | ------------------------------------------------ | ---------------------------------------- |
 | [docute](https://github.com/egoist/docute)       | 📜 Effortlessly documentation done right |
 | [docpress](https://github.com/docpress/docpress) | Documentation website generator          |
 
-## Contributing
+#2 Contributing
 
-### Online one-click setup for Contributing
+#3 Online one-click setup for Contributing
 
 You can use Gitpod(A free online VS Code-like IDE) for contributing. With single click it'll launch a workspace and automatically:
 
@@ -88,19 +88,19 @@ So that you can start straight away.
 - Push to the branch: `git push origin my-new-feature`
 - Submit a pull request
 
-## Development
+#2 Development
 
 ```bash
 npm run bootstrap && npm run dev
 ```
 
-## Backers
+#2 Backers
 
 Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/docsify#backers)]
 
 <a href="https://opencollective.com/docsify#backers" target="_blank"><img src="https://opencollective.com/docsify/backers.svg?width=890"></a>
 
-## Sponsors
+#2 Sponsors
 
 Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/docsify#silver-sponsors)]
 
@@ -115,11 +115,11 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 <a href="https://opencollective.com/docsify/silver-sponsors/8/website" target="_blank"><img src="https://opencollective.com/docsify/silver-sponsors/8/avatar.svg"></a>
 <a href="https://opencollective.com/docsify/silver-sponsors/9/website" target="_blank"><img src="https://opencollective.com/docsify/silver-sponsors/9/avatar.svg"></a>
 
-## Contributors
+#2 Contributors
 
 This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
 <a href="https://github.com/docsifyjs/docsify/graphs/contributors"><img src="https://opencollective.com/docsify/contributors.svg?width=890" /></a>
 
-## License
+#2 License
 
 [MIT](LICENSE)

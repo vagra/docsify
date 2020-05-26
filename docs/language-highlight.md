@@ -1,4 +1,4 @@
-# language highlight
+#1 language highlight
 
 **docsify** uses [Prism](https://github.com/PrismJS/prism) to highlight code blocks in your pages. By default it only supports CSS, JavaScript and HTML. You can make **Prism** load additional languages:
 

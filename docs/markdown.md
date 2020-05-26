@@ -1,4 +1,4 @@
-# Markdown configuration
+#1 Markdown configuration
 
 **docsify** uses [marked](https://github.com/markedjs/marked) as its Markdown parser. You can customize how it renders your Markdown content to HTML by customizing `renderer`:
 
@@ -29,7 +29,7 @@ window.$docsify = {
 }
 ```
 
-## Supports mermaid
+#2 Supports mermaid
 
 ```js
 // Import mermaid

@@ -1,6 +1,6 @@
-# Custom navbar
+#1 Custom navbar
 
-## HTML
+#2 HTML
 
 If you need custom navigation, you can create a HTML-based navigation bar.
 
@@ -18,7 +18,7 @@ If you need custom navigation, you can create a HTML-based navigation bar.
 </body>
 ```
 
-## Markdown
+#2 Markdown
 
 Alternatively, you can create a custom markdown-based navigation file by setting `loadNavbar` to **true** and creating `_navbar.md`, compare [loadNavbar configuration](configuration.md#loadnavbar).
 
@@ -44,7 +44,7 @@ Alternatively, you can create a custom markdown-based navigation file by setting
 
 `_navbar.md` is loaded from each level directory. If the current directory doesn't have `_navbar.md`, it will fall back to the parent directory. If, for example, the current path is `/guide/quick-start`, the `_navbar.md` will be loaded from `/guide/_navbar.md`.
 
-## Nesting
+#2 Nesting
 
 You can create sub-lists by indenting items that are under a certain parent.
 
@@ -70,7 +70,7 @@ renders as
 
 ![Nesting navbar](_images/nested-navbar.png 'Nesting navbar')
 
-## Combining custom navbars with the emoji plugin
+#2 Combining custom navbars with the emoji plugin
 
 If you use the [emoji plugin](plugins#emoji):
 

@@ -1,4 +1,4 @@
-# Embed files
+#1 Embed files
 
 With docsify 4.6 it is now possible to embed any type of file.
 You can embed these files as video, audio, iframes, or code blocks, and even Markdown files can even be embedded directly into the document.
@@ -17,7 +17,7 @@ You can check the original content for [example.md](_media/example.md ':ignore')
 
 Normally, this will compiled into a link, but in docsify, if you add `:include` it will be embedded.
 
-## Embedded file type
+#2 Embedded file type
 
 Currently, file extension are automatically recognized and embedded in different ways.
 
@@ -39,7 +39,7 @@ You will get it
 
 [filename](_media/example.md ':include :type=code')
 
-## Markdown with YAML Front Matter
+#2 Markdown with YAML Front Matter
 
 When using Markdown, YAML front matter will be stripped from the rendered content. The attributes cannot be used in this case.
 
@@ -51,7 +51,7 @@ You will get just the content
 
 [filename](_media/example-with-yaml.md ':include')
 
-## Embedded code fragments
+#2 Embedded code fragments
 
 Sometimes you don't want to embed a whole file. Maybe because you need just a few lines but you want to compile and test the file in CI.
 
@@ -66,7 +66,7 @@ Example:
 
 [filename](_media/example.js ':include :type=code :fragment=demo')
 
-## Tag attribute
+#2 Tag attribute
 
 If you embed the file as `iframe`, `audio` and `video`, then you may need to set the attributes of these tags.
 
@@ -78,7 +78,7 @@ If you embed the file as `iframe`, `audio` and `video`, then you may need to set
 
 Did you see it? You only need to write directly. You can check [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe) for these attributes.
 
-## The code block highlight
+#2 The code block highlight
 
 Embedding any type of source code file, you can specify the highlighted language or automatically identify.
 

@@ -1,4 +1,4 @@
-# Configuration
+#1 Configuration
 
 You can configure the `window.$docsify`.
 
@@ -12,7 +12,7 @@ You can configure the `window.$docsify`.
 </script>
 ```
 
-## el
+#2 el
 
 - Type: `String`
 - Default: `#app`
@@ -25,7 +25,7 @@ window.$docsify = {
 };
 ```
 
-## repo
+#2 repo
 
 - Type: `String`
 - Default: `null`
@@ -40,7 +40,7 @@ window.$docsify = {
 };
 ```
 
-## maxLevel
+#2 maxLevel
 
 - Type: `Number`
 - Default: `6`
@@ -53,7 +53,7 @@ window.$docsify = {
 };
 ```
 
-## loadNavbar
+#2 loadNavbar
 
 - Type: `Boolean|String`
 - Default: `false`
@@ -70,7 +70,7 @@ window.$docsify = {
 };
 ```
 
-## loadSidebar
+#2 loadSidebar
 
 - Type: `Boolean|String`
 - Default: `false`
@@ -87,7 +87,7 @@ window.$docsify = {
 };
 ```
 
-## hideSidebar
+#2 hideSidebar
 
 - Type : `Boolean`
 - Default: `true`
@@ -100,7 +100,7 @@ window.$docsify = {
 };
 ```
 
-## subMaxLevel
+#2 subMaxLevel
 
 - Type: `Number`
 - Default: `0`
@@ -113,7 +113,7 @@ window.$docsify = {
 };
 ```
 
-## auto2top
+#2 auto2top
 
 - Type: `Boolean`
 - Default: `false`
@@ -126,7 +126,7 @@ window.$docsify = {
 };
 ```
 
-## homepage
+#2 homepage
 
 - Type: `String`
 - Default: `README.md`
@@ -154,7 +154,7 @@ If you have a link to the homepage in the sidebar and want it to be shown as act
 
 For more details, see [#1131](https://github.com/docsifyjs/docsify/issues/1131).
 
-## basePath
+#2 basePath
 
 - Type: `String`
 
@@ -173,7 +173,7 @@ window.$docsify = {
 };
 ```
 
-## relativePath
+#2 relativePath
 
 - Type: `Boolean`
 - Default: `false`
@@ -213,7 +213,7 @@ window.$docsify = {
 };
 ```
 
-## coverpage
+#2 coverpage
 
 - Type: `Boolean|String|String[]|Object`
 - Default: `false`
@@ -238,7 +238,7 @@ window.$docsify = {
 };
 ```
 
-## logo
+#2 logo
 
 - Type: `String`
 
@@ -250,7 +250,7 @@ window.$docsify = {
 };
 ```
 
-## name
+#2 name
 
 - Type: `String`
 
@@ -270,7 +270,7 @@ window.$docsify = {
 };
 ```
 
-## nameLink
+#2 nameLink
 
 - Type: `String`
 - Default: `window.location.pathname`
@@ -289,7 +289,7 @@ window.$docsify = {
 };
 ```
 
-## markdown
+#2 markdown
 
 - Type: `Function`
 
@@ -315,7 +315,7 @@ window.$docsify = {
 };
 ```
 
-## themeColor
+#2 themeColor
 
 - Type: `String`
 
@@ -327,7 +327,7 @@ window.$docsify = {
 };
 ```
 
-## alias
+#2 alias
 
 - Type: `Object`
 
@@ -345,7 +345,7 @@ window.$docsify = {
 };
 ```
 
-## autoHeader
+#2 autoHeader
 
 - type: `Boolean`
 
@@ -358,7 +358,7 @@ window.$docsify = {
 };
 ```
 
-## executeScript
+#2 executeScript
 
 - type: `Boolean`
 
@@ -371,7 +371,7 @@ window.$docsify = {
 ```
 
 ```markdown
-## This is test
+#2 This is test
 
 <script>
   console.log(2333)
@@ -380,7 +380,7 @@ window.$docsify = {
 
 Note that if you are running an external script, e.g. an embedded jsfiddle demo, make sure to include the [external-script](plugins.md?id=external-script) plugin.
 
-## noEmoji
+#2 noEmoji
 
 - type: `Boolean`
 
@@ -394,7 +394,7 @@ window.$docsify = {
 
 ?> If this options is `false` but you dont want to emojify some specific colons , [Refer this](https://github.com/docsifyjs/docsify/issues/742#issuecomment-586313143)
 
-## mergeNavbar
+#2 mergeNavbar
 
 - type: `Boolean`
 
@@ -406,7 +406,7 @@ window.$docsify = {
 };
 ```
 
-## formatUpdated
+#2 formatUpdated
 
 - type: `String|Function`
 
@@ -425,7 +425,7 @@ window.$docsify = {
 };
 ```
 
-## externalLinkTarget
+#2 externalLinkTarget
 
 - type: `String`
 - default: `_blank`
@@ -438,7 +438,7 @@ window.$docsify = {
 };
 ```
 
-## cornerExternalLinkTarget
+#2 cornerExternalLinkTarget
 
 - type:`String`
 - default:`_blank`
@@ -451,7 +451,7 @@ window.$docsify = {
 };
 ```
 
-## externalLinkRel
+#2 externalLinkRel
 
 - type: `String`
 - default: `noopener`
@@ -464,7 +464,7 @@ window.$docsify = {
 };
 ```
 
-## routerMode
+#2 routerMode
 
 - type: `String`
 - default: `hash`
@@ -475,7 +475,7 @@ window.$docsify = {
 };
 ```
 
-## noCompileLinks
+#2 noCompileLinks
 
 - type: `Array`
 
@@ -487,7 +487,7 @@ window.$docsify = {
 };
 ```
 
-## onlyCover
+#2 onlyCover
 
 - type: `Boolean`
 
@@ -499,7 +499,7 @@ window.$docsify = {
 };
 ```
 
-## requestHeaders
+#2 requestHeaders
 
 - type: `Object`
 
@@ -523,7 +523,7 @@ window.$docsify = {
 };
 ```
 
-## ext
+#2 ext
 
 - type: `String`
 
@@ -535,7 +535,7 @@ window.$docsify = {
 };
 ```
 
-## fallbackLanguages
+#2 fallbackLanguages
 
 - type: `Array<string>`
 
@@ -553,7 +553,7 @@ window.$docsify = {
 };
 ```
 
-## notFoundPage
+#2 notFoundPage
 
 - type: `Boolean` | `String` | `Object`
 
@@ -586,7 +586,7 @@ window.$docsify = {
 
 > Note: The options with fallbackLanguages didn't work with the `notFoundPage` options.
 
-## topMargin
+#2 topMargin
 
 - type: `Number`
 - default: `0`

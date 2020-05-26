@@ -1,8 +1,8 @@
-# Compatible with Vue
+#1 Compatible with Vue
 
 You can write Vue components directly in the Markdown file, and it will be parsed. You can use this feature to write vue demo and documentation together.
 
-## Basic usage
+#2 Basic usage
 
 Load the Vue in `./index.html`.
 
@@ -20,7 +20,7 @@ Then you can immediately write Vue code at Markdown file. `new Vue({ el: '#main'
 *README.md*
 
 ````markdown
-# Vue guide
+#1 Vue guide
 
 `v-for` usage.
 
@@ -40,7 +40,7 @@ You can manually initialize a Vue instance.
 *README.md*
 
 ```markdown
-# Vue demo
+#1 Vue demo
 
 <div id="main">hello {{ msg }}</div>
 
@@ -54,7 +54,7 @@ You can manually initialize a Vue instance.
 
 !> In a Markdown file, only the script within the first script tag is executed.
 
-## Combine Vuep to write playground
+#2 Combine Vuep to write playground
 
 [Vuep](https://github.com/QingWei-Li/vuep) is a component for rendering Vue components with live editor and preview. Supports Vue component spec and JSX.
 
@@ -77,7 +77,7 @@ You can manually initialize a Vue instance.
 
 *README.md*
 ```markdown
-# Vuep
+#1 Vuep
 
 <vuep template="#example"></vuep>
 

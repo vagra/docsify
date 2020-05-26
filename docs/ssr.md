@@ -1,14 +1,14 @@
-# Server-Side Rendering
+#1 Server-Side Rendering
 
 See https://docsify.now.sh
 
 Repo in https://github.com/docsifyjs/docsify-ssr-demo
 
-## Why SSR?
+#2 Why SSR?
 - Better SEO
 - Feeling cool
 
-## Quick start
+#2 Quick start
 
 Install `now` and `docsify-cli` in your project.
 
@@ -47,7 +47,7 @@ We can preview in the local to see if it works.
 ```bash
 npm start
 
-# open http://localhost:4000
+#1 open http://localhost:4000
 ```
 
 Publish it!
@@ -58,7 +58,7 @@ now -p
 
 Now, You have a support for SSR the docs site.
 
-## Custom template
+#2 Custom template
 
 You can provide a template for entire page's HTML. such as
 
@@ -87,7 +87,7 @@ The template should contain these comments for rendered app content.
  - `<!--inject-app-->`
  - `<!--inject-config-->`
 
-## Configuration
+#2 Configuration
 
 You can configure it in a special config file, or `package.json`.
 
@@ -101,7 +101,7 @@ module.exports = {
 }
 ```
 
-## Deploy for your VPS
+#2 Deploy for your VPS
 
 You can run `docsify start` directly on your Node server, or write your own server app with `docsify-server-renderer`.
 

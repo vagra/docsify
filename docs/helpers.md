@@ -1,10 +1,10 @@
-# Doc helper
+#1 Doc helper
 
 docsify extends Markdown syntax to make your documents more readable.
 
 > Note:  For the special code syntax cases, you'd better put them within a code backticks to avoid any conflicting from configurations or emojis. 
 
-## important content
+#2 important content
 
 Important content like:
 
@@ -16,7 +16,7 @@ is rendered as:
 
 !> **Time** is money, my friend!
 
-## General tips
+#2 General tips
 
 General tips like:
 
@@ -28,7 +28,7 @@ are rendered as:
 
 ?> _TODO_ unit test
 
-## Ignore to compile link
+#2 Ignore to compile link
 
 Some time we will put some other relative path to the link, you have to need to tell docsify you don't need to compile this link. For example
 
@@ -52,20 +52,20 @@ You will get `<a href="/demo/">link</a>`html. Do not worry, you can still set ti
 <a href="/demo/" title="title">link</a>
 ```
 
-## Set target attribute for link
+#2 Set target attribute for link
 
 ```md
 [link](/demo ':target=_blank')
 [link](/demo2 ':target=_self')
 ```
 
-## Disable link
+#2 Disable link
 
 ```md
 [link](/demo ':disabled')
 ```
 
-## Cross-Origin link
+#2 Cross-Origin link
 
 Only when you both set the `routerMode: 'history'` and `externalLinkTarget: '_self'`, you need add this configuration for those Cross-Origin links.
 
@@ -73,7 +73,7 @@ Only when you both set the `routerMode: 'history'` and `externalLinkTarget: '_se
 [example.com](https://example.com/ ':crossorgin')  
 ```
 
-## Github Task Lists
+#2 Github Task Lists
 
 ```md
 - [ ] foo
@@ -91,9 +91,9 @@ Only when you both set the `routerMode: 'history'` and `externalLinkTarget: '_se
   - [ ] bim
   - [ ] lim
 
-## Image
+#2 Image
 
-### Resizing
+#3 Resizing
 
 ```md
 ![logo](https://docsify.js.org/_media/icon.svg ':size=WIDTHxHEIGHT')
@@ -109,25 +109,25 @@ Only when you both set the `routerMode: 'history'` and `externalLinkTarget: '_se
 ![logo](https://docsify.js.org/_media/icon.svg ':size=100')
 ![logo](https://docsify.js.org/_media/icon.svg ':size=10%')
 
-### Customise class
+#3 Customise class
 
 ```md
 ![logo](https://docsify.js.org/_media/icon.svg ':class=someCssClass')
 ```
 
-### Customise ID
+#3 Customise ID
 
 ```md
 ![logo](https://docsify.js.org/_media/icon.svg ':id=someCssId')
 ```
 
-## Customise ID for headings
+#2 Customise ID for headings
 
 ```md
-### 你好，世界！ :id=hello-world
+#3 你好，世界！ :id=hello-world
 ```
 
-## Markdown in html tag
+#2 Markdown in html tag
 
 You need to insert a space between the html and markdown content.
 This is useful for rendering markdown content in the details element.

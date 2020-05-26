@@ -1,8 +1,8 @@
-# Cover
+#1 Cover
 
 Activate the cover feature by setting `coverpage` to **true**, compare [coverpage configuration](configuration.md#coverpage).
 
-## Basic usage
+#2 Basic usage
 
 Set `coverpage` to **true**, and create a `_coverpage.md`:
 
@@ -22,7 +22,7 @@ Set `coverpage` to **true**, and create a `_coverpage.md`:
 
 ![logo](_media/icon.svg)
 
-# docsify <small>3.5</small>
+#1 docsify <small>3.5</small>
 
 > A magical documentation site generator.
 
@@ -36,14 +36,14 @@ Set `coverpage` to **true**, and create a `_coverpage.md`:
 
 !> A document site can have only one coverpage!
 
-## Custom background
+#2 Custom background
 
 The background color is generated randomly by default. You can customize the background color or a background image:
 
 ```markdown
 <!-- _coverpage.md -->
 
-# docsify <small>3.5</small>
+#1 docsify <small>3.5</small>
 
 [GitHub](https://github.com/docsifyjs/docsify/)
 [Get Started](#quick-start)
@@ -57,11 +57,11 @@ The background color is generated randomly by default. You can customize the bac
 ![color](#f0f0f0)
 ```
 
-## Coverpage as homepage
+#2 Coverpage as homepage
 
 Normally, the coverpage and the homepage appear at the same time. Of course, you can also separate the coverpage by [onlyCover option](configuration.md#onlycover).
 
-## Multiple covers
+#2 Multiple covers
 
 If your docs site is in more than one language, it may be useful to set multiple covers.
 

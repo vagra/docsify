@@ -1,4 +1,4 @@
-# Themes
+#1 Themes
 
 There is a handful of themes available, both official and community-made. Copy [Vue](//vuejs.org) and [buble](//buble.surge.sh) website custom theme and [@liril-net](https://github.com/liril-net) contribution to the theme of the black style.
 
@@ -22,7 +22,7 @@ There is a handful of themes available, both official and community-made. Copy [
 
 If you have any ideas or would like to develop a new theme, you are welcome to submit a [pull request](https://github.com/docsifyjs/docsify/pulls).
 
-#### Click to preview
+#4 Click to preview
 
 <div class="demo-theme-preview">
   <a data-theme="vue">vue.css</a>
@@ -55,6 +55,6 @@ If you have any ideas or would like to develop a new theme, you are welcome to s
   };
 </script>
 
-## Other themes
+#2 Other themes
 
 - [docsify-themeable](https://jhildenbiddle.github.io/docsify-themeable/#/) A delightfully simple theme system for docsify.

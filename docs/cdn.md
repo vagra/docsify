@@ -1,8 +1,8 @@
-# CDN
+#1 CDN
 
 Recommended: [jsDelivr](//cdn.jsdelivr.net), which will reflect the latest version as soon as it is published to npm. You can also browse the source of the npm package at [cdn.jsdelivr.net/npm/docsify/](//cdn.jsdelivr.net/npm/docsify/).
 
-## Latest version
+#2 Latest version
 
 ```html
 <!-- load css -->
@@ -14,7 +14,7 @@ Recommended: [jsDelivr](//cdn.jsdelivr.net), which will reflect the latest versi
 
 Alternatively, use [compressed files](#compressed-file).
 
-## Specific version
+#2 Specific version
 
 ```html
 <!-- load css -->
@@ -24,7 +24,7 @@ Alternatively, use [compressed files](#compressed-file).
 <script src="//cdn.jsdelivr.net/npm/docsify@4.10.2/lib/docsify.js"></script>
 ```
 
-## Compressed file
+#2 Compressed file
 
 ```html
 <!-- load css -->
@@ -42,7 +42,7 @@ Alternatively, use [compressed files](#compressed-file).
 <script src="//cdn.jsdelivr.net/npm/docsify@4.10.2/lib/docsify.min.js"></script>
 ```
 
-## Other CDN
+#2 Other CDN
 
 - http://www.bootcdn.cn/docsify
 - https://cdn.jsdelivr.net/npm/docsify/

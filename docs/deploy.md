@@ -1,8 +1,8 @@
-# Deploy
+#1 Deploy
 
 Similar to [GitBook](https://www.gitbook.com), you can deploy files to GitHub Pages, GitLab Pages or VPS.
 
-## GitHub Pages
+#2 GitHub Pages
 
 There're three places to populate your docs for your Github repository:
 
@@ -17,7 +17,7 @@ It is recommended that you save your files to the `./docs` subfolder of the `mas
 !> You can also save files in the root directory and select `master branch`.
 You'll need to place a `.nojekyll` file in the deploy location (such as `/docs` or the gh-pages branch)
 
-## GitLab Pages
+#2 GitLab Pages
 
 If you are deploying your master branch, include `.gitlab-ci.yml` with the following script:
 
@@ -39,7 +39,7 @@ pages:
 
 !> You can replace script with `- cp -r docs/. public`, if `./docs` is your Docsify subfolder.
 
-## Firebase Hosting
+#2 Firebase Hosting
 
 !> You'll need to install the Firebase CLI using `npm i -g firebase-tools` after signing into the [Firebase Console](https://console.firebase.google.com) using a Google Account.
 
@@ -58,7 +58,7 @@ You should have your `firebase.json` file looking similar to this (I changed the
 
 Once finished, build the starting template by running `docsify init ./site` (replacing site with the deployment directory you determined when running `firebase init` - public by default). Add/edit the documentation, then run `firebase deploy` from the base project directory.
 
-## VPS
+#2 VPS
 
 Try following nginx config.
 
@@ -74,13 +74,13 @@ server {
 }
 ```
 
-## Netlify
+#2 Netlify
 
 1.  Login to your [Netlify](https://www.netlify.com/) account.
 2.  In the [dashboard](https://app.netlify.com/) page, click **New site from Git**.
 3.  Choose a repository where you store your docs, leave the **Build Command** area blank, fill in the Publish directory area with the directory of your `index.html`, for example it should be docs if you populated it at `docs/index.html`.
 
-### HTML5 router
+#3 HTML5 router
 
 When using the HTML5 router, you need to set up redirect rules that redirect all requests to your `index.html`, it's pretty simple when you're using Netlify, create a file named `_redirects` in the docs directory, add this snippet to the file and you're all set:
 
@@ -88,13 +88,13 @@ When using the HTML5 router, you need to set up redirect rules that redirect all
 /*    /index.html   200
 ```
 
-## ZEIT Now
+#2 ZEIT Now
 
 1. Install [Now CLI](https://zeit.co/download), `npm i -g now`
 2. Change directory to your docsify website, for example `cd docs`
 3. Deploy with a single command, `now` 
 
-## AWS Amplify
+#2 AWS Amplify
 
 1. Set the routerMode in the Docsify project `index.html` to *history* mode.
 

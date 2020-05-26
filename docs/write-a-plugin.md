@@ -1,8 +1,8 @@
-# Write a plugin
+#1 Write a plugin
 
 A plugin is simply a function that takes `hook` as an argument. The hook supports handling of asynchronous tasks.
 
-## Full configuration
+#2 Full configuration
 
 ```js
 window.$docsify = {
@@ -45,9 +45,9 @@ window.$docsify = {
 
 !> You can get internal methods through `window.Docsify`. Get the current instance through the second argument.
 
-## Example
+#2 Example
 
-#### footer
+#4 footer
 
 Add footer component in each pages.
 
@@ -71,7 +71,7 @@ window.$docsify = {
 };
 ```
 
-### Edit Button
+#3 Edit Button
 
 ```js
 window.$docsify = {
@@ -96,9 +96,9 @@ window.$docsify = {
 };
 ```
 
-## Tips
+#2 Tips
 
-### Get docsify version
+#3 Get docsify version
 
 ```
 console.log(window.Docsify.version)

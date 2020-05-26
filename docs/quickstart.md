@@ -1,4 +1,4 @@
-# Quick start
+#1 Quick start
 
 It is recommended to install `docsify-cli` globally, which helps initializing and previewing the website locally.
 
@@ -6,7 +6,7 @@ It is recommended to install `docsify-cli` globally, which helps initializing an
 npm i docsify-cli -g
 ```
 
-## Initialize
+#2 Initialize
 
 If you want to write the documentation in the `./docs` subdirectory, you can use the `init` command.
 
@@ -14,7 +14,7 @@ If you want to write the documentation in the `./docs` subdirectory, you can use
 docsify init ./docs
 ```
 
-## Writing content
+#2 Writing content
 
 After the `init` is complete, you can see the file list in the `./docs` subdirectory.
 
@@ -24,7 +24,7 @@ After the `init` is complete, you can see the file list in the `./docs` subdirec
 
 You can easily update the documentation in `./docs/README.md`, of course you can add [more pages](more-pages.md).
 
-## Preview your site
+#2 Preview your site
 
 Run the local server with `docsify serve`. You can preview your site in your browser on `http://localhost:3000`.
 
@@ -34,7 +34,7 @@ docsify serve docs
 
 ?> For more use cases of `docsify-cli`, head over to the [docsify-cli documentation](https://github.com/docsifyjs/docsify-cli).
 
-## Manual initialization
+#2 Manual initialization
 
 If you don't like `npm` or have trouble installing the tool, you can manually create `index.html`:
 
@@ -67,7 +67,7 @@ If you installed python on your system, you can easily use it to run a static se
 cd docs && python -m SimpleHTTPServer 3000
 ```
 
-## Loading dialog
+#2 Loading dialog
 
 If you want, you can show a loading dialog before docsify starts to render your documentation:
 
