@@ -6,6 +6,8 @@ themes/
 lib/
 cypress/integration/examples
 cypress/fixtures/docs
+cypress/screenshots
+cypress/snapshots
 
 # exceptions
 !.gitkeep
