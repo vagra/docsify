@@ -95,16 +95,18 @@ export function tree(toc, tpl = '<ul>{inner}</ul>', all = false) {
   let innerHTML = '';
   toc.forEach(node => {
     if (node.children) {
-      innerHTML += `<li class="has-children"><span></span><a class="section-link lv${node.level}" href="${node.slug}">${node.title}</a>`;
+      innerHTML += `<li class="has-children">`;
+      innerHTML += `<span></span>`;
+      innerHTML += `<a class="section-link lv${node.level}" href="${node.slug}">${node.title}</a>`;
       if (!all) {
         innerHTML += tree(node.children);
       } else {
         innerHTML += tree(node.children, tpl, true);
       }
+      innerHTML += `</li>`;
     } else {
-      innerHTML += `<li><span></span><a class="section-link lv${node.level}" href="${node.slug}">${node.title}</a>`;
+      innerHTML += `<li><span></span><a class="section-link lv${node.level}" href="${node.slug}">${node.title}</a></li>`;
     }
-    innerHTML += `</li>`;
   });
 
   return tpl.replace('{inner}', innerHTML);

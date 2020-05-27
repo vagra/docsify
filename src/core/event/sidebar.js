@@ -46,6 +46,7 @@ export function collapse(el) {
     } else if (
       target.nodeName === 'SPAN' &&
       target.nextSibling &&
+      target.nextSibling.classList &&
       target.nextSibling.classList.contains('section-link')
     ) {
       dom.toggleClass(target, 'change');
