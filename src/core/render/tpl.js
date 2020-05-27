@@ -93,9 +93,13 @@ export function tree(toc, tpl = '<ul class="app-sub-sidebar">{inner}</ul>') {
 
   let innerHTML = '';
   toc.forEach(node => {
-    innerHTML += `<li><a class="section-link" href="${node.slug}">${node.title}</a></li>`;
     if (node.children) {
+      innerHTML += `<li class="has-children">`;
+      innerHTML += `<a class="section-link" href="${node.slug}">${node.title}</a>`;
       innerHTML += tree(node.children, tpl);
+      innerHTML += `</li>`;
+    } else {
+      innerHTML += `<li><a class="section-link" href="${node.slug}">${node.title}</a></li>`;
     }
   });
   return tpl.replace('{inner}', innerHTML);

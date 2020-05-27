@@ -42,8 +42,28 @@ body
 .app-sub-sidebar
   li
     &::before
-      content '-'
-      padding-right 4px
+      content '\00A0'
+      font-size 12px
+      line-height 1em
+      padding 0 6px 0 0
+      float left
+
+  li.has-children
+    &::before
+      writing-mode vertical-lr
+      content '\276F'
+      font-size 12px
+      line-height 1em
+      padding 12px 0 0 0
+      float left
+  
+  li.has-children.collapse
+    &::before
+      writing-mode horizontal-tb
+      content '\276F'
+      font-size 12px
+      line-height 1em
+      padding 9px 4px 0 2px
       float left
 
 /* markdown content found on pages */
