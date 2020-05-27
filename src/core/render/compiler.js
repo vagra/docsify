@@ -1,4 +1,3 @@
-import marked from 'marked';
 import { isAbsolutePath, getPath, getParentPath } from '../router/util';
 import { isFn, merge, cached, isPrimitive } from '../util/core';
 import { tree as treeTpl } from './tpl';
@@ -12,6 +11,7 @@ import { paragraphCompiler } from './compiler/paragraph';
 import { taskListCompiler } from './compiler/taskList';
 import { taskListItemCompiler } from './compiler/taskListItem';
 import { linkCompiler } from './compiler/link';
+import marked from 'marked';
 
 const cachedLinks = {};
 
@@ -278,7 +278,7 @@ export class Compiler {
       }
 
       const tree = this.cacheTree[currentPath] || genTree(toc, level);
-      html = treeTpl(tree, '<ul>{inner}</ul>');
+      html = treeTpl(tree);
       this.cacheTree[currentPath] = tree;
     }
 
