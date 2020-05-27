@@ -1,8 +1,8 @@
-import Tweezer from 'tweezer.js';
 import { isMobile } from '../util/env';
 import * as dom from '../util/dom';
 import { removeParams } from '../router/util';
 import config from '../config';
+import Tweezer from 'tweezer.js';
 
 const nav = {};
 let hoverOver = false;
@@ -38,6 +38,7 @@ function highlight(path) {
   const anchors = dom.findAll('.anchor');
   const wrap = dom.find(sidebar, '.sidebar-nav');
   let active = dom.find(sidebar, 'li.active');
+  let parents = dom.findAll(sidebar, 'li.parent');
   const doc = document.documentElement;
   const top = ((doc && doc.scrollTop) || document.body.scrollTop) - coverHeight;
   let last;
@@ -70,6 +71,9 @@ function highlight(path) {
   li.classList.add('active');
   active = li;
 
+  parents.forEach(node => node.classList.remove('parent'));
+  active = findParents(active);
+
   // Scroll into view
   // https://github.com/vuejs/vuejs.org/blob/master/themes/vue/source/js/common.js#L282-L297
   if (!hoverOver && dom.body.classList.contains('sticky')) {
@@ -82,6 +86,29 @@ function highlight(path) {
     const top = isInView ? wrap.scrollTop : notThan ? curOffset : cur - height;
 
     sidebar.scrollTop = top;
+  }
+}
+
+function findParents(active) {
+  if (!active) {
+    return active;
+  }
+
+  let root = active;
+  let node = active.parentNode;
+
+  while (node) {
+    if (node.classList.contains('app-sub-sidebar')) {
+      node = node.parentNode;
+      continue;
+    } else if (node.classList.contains('has-children')) {
+      node.classList.add('parent');
+      root = node;
+      node = node.parentNode;
+      continue;
+    } else {
+      return root;
+    }
   }
 }
 
@@ -149,8 +176,12 @@ export function scrollIntoView(path, id) {
   const li = nav[getNavKey(path, id)];
   const sidebar = dom.getNode('.sidebar');
   const active = dom.find(sidebar, 'li.active');
+  const parents = dom.findAll(sidebar, 'li.parent');
   active && active.classList.remove('active');
+  parents.forEach(node => node.classList.remove('parent'));
+
   li && li.classList.add('active');
+  findParents(li);
 }
 
 const scrollEl = dom.$.scrollingElement || dom.$.documentElement;
