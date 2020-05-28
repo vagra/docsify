@@ -72,7 +72,7 @@ function highlight(path) {
   active = li;
 
   parents.forEach(node => node.classList.remove('parent'));
-  findParents(active);
+  active = findParents(active);
 
   // Scroll into view
   // https://github.com/vuejs/vuejs.org/blob/master/themes/vue/source/js/common.js#L282-L297
@@ -94,6 +94,7 @@ function findParents(active) {
     return active;
   }
 
+  let top = active;
   let node = active.parentNode;
 
   while (node) {
@@ -103,11 +104,12 @@ function findParents(active) {
     } else if (node.classList.contains('has-children')) {
       if (node.classList.contains('collapse')) {
         node.classList.add('parent');
+        top = node;
       }
       node = node.parentNode;
       continue;
     } else {
-      return;
+      return top;
     }
   }
 }
