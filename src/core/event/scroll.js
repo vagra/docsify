@@ -94,7 +94,7 @@ function findParents(active) {
     return active;
   }
 
-  let root = active;
+  let top = active;
   let node = active.parentNode;
 
   while (node) {
@@ -102,12 +102,14 @@ function findParents(active) {
       node = node.parentNode;
       continue;
     } else if (node.classList.contains('has-children')) {
-      node.classList.add('parent');
-      root = node;
+      if (node.classList.contains('collapse')) {
+        node.classList.add('parent');
+        top = node;
+      }
       node = node.parentNode;
       continue;
     } else {
-      return root;
+      return top;
     }
   }
 }
