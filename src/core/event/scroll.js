@@ -102,8 +102,8 @@ function findParents(active) {
       node = node.parentNode;
       continue;
     } else if (node.classList.contains('has-children')) {
+      node.classList.add('parent');
       if (node.classList.contains('collapse')) {
-        node.classList.add('parent');
         top = node;
       }
       node = node.parentNode;
