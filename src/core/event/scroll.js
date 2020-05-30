@@ -1,21 +1,26 @@
-import Tweezer from 'tweezer.js';
 import { isMobile } from '../util/env';
 import * as dom from '../util/dom';
 import { removeParams } from '../router/util';
 import config from '../config';
+import Tweezer from 'tweezer.js';
 
 const nav = {};
 let hoverOver = false;
 let scroller = null;
-let enableScrollEvent = true;
 let coverHeight = 0;
+
+const scrollEvent = {
+  plugin: false,
+  enable: true,
+};
+export { scrollEvent };
 
 function scrollTo(el, offset = 0) {
   if (scroller) {
     scroller.stop();
   }
 
-  enableScrollEvent = false;
+  scrollEvent.enable = false;
   scroller = new Tweezer({
     start: window.pageYOffset,
     end: el.getBoundingClientRect().top + window.pageYOffset - offset,
@@ -23,20 +28,19 @@ function scrollTo(el, offset = 0) {
   })
     .on('tick', v => window.scrollTo(0, v))
     .on('done', () => {
-      enableScrollEvent = true;
+      scrollEvent.enable = true;
       scroller = null;
     })
     .begin();
 }
 
 function highlight(path) {
-  if (!enableScrollEvent) {
+  if (!scrollEvent.enable) {
     return;
   }
 
   const sidebar = dom.getNode('.sidebar');
   const anchors = dom.findAll('.anchor');
-  const wrap = dom.find(sidebar, '.sidebar-nav');
   let active = dom.find(sidebar, 'li.active');
   const doc = document.documentElement;
   const top = ((doc && doc.scrollTop) || document.body.scrollTop) - coverHeight;
@@ -70,12 +74,20 @@ function highlight(path) {
   li.classList.add('active');
   active = li;
 
+  if (!scrollEvent.plugin) {
+    scrollSidebarIntoView(active);
+  }
+}
+
+export function scrollSidebarIntoView(active) {
+  const sidebar = dom.getNode('.sidebar');
+  const wrap = dom.find(sidebar, '.sidebar-nav');
   // Scroll into view
   // https://github.com/vuejs/vuejs.org/blob/master/themes/vue/source/js/common.js#L282-L297
   if (!hoverOver && dom.body.classList.contains('sticky')) {
     const height = sidebar.clientHeight;
     const curOffset = 0;
-    const cur = active.offsetTop + active.clientHeight + 40;
+    const cur = active.offsetTop + active.clientHeight + height / 2;
     const isInView =
       active.offsetTop >= wrap.scrollTop && cur <= wrap.scrollTop + height;
     const notThan = cur - curOffset < height;

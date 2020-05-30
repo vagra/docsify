@@ -192,6 +192,21 @@ A docsify.js plugin for displaying tabbed content from markdown.
 
 Provided by [@jhildenbiddle](https://github.com/jhildenbiddle/docsify-tabs).
 
+## sideplus
+
+Using this plugin, you can expand/collapse sidebar items by click the arrow icon.
+
+```
+  <script>
+    window.$docsify = {
+      loadSidebar: true,
+      maxLevel: 6,
+      subMaxLevel: 6,
+    }
+  </script>
+  <script src="lib/plugins/sideplus.js"></script>
+```
+
 ## More plugins
 
 See [awesome-docsify](awesome?id=plugins)

@@ -59,6 +59,7 @@ const buildAllPlugin = function () {
     {name: 'emoji', input: 'emoji.js'},
     {name: 'external-script', input: 'external-script.js'},
     {name: 'front-matter', input: 'front-matter/index.js'},
+    {name: 'sideplus', input: 'sideplus/index.js'},
     {name: 'zoom-image', input: 'zoom-image.js'},
     {name: 'disqus', input: 'disqus.js'},
     {name: 'gitalk', input: 'gitalk.js'}
