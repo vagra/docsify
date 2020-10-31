@@ -1,8 +1,8 @@
-import Tweezer from 'tweezer.js';
 import { isMobile } from '../util/env';
 import * as dom from '../util/dom';
 import { removeParams } from '../router/util';
 import config from '../config';
+import Tweezer from 'tweezer.js';
 
 const nav = {};
 let hoverOver = false;
@@ -18,7 +18,8 @@ function scrollTo(el, offset = 0) {
   enableScrollEvent = false;
   scroller = new Tweezer({
     start: window.pageYOffset,
-    end: el.getBoundingClientRect().top + window.pageYOffset - offset,
+    end:
+      Math.round(el.getBoundingClientRect().top) + window.pageYOffset - offset,
     duration: 500,
   })
     .on('tick', v => window.scrollTo(0, v))
@@ -36,7 +37,7 @@ function highlight(path) {
 
   const sidebar = dom.getNode('.sidebar');
   const anchors = dom.findAll('.anchor');
-  const wrap = dom.find(sidebar, '.app-sub-sidebar');
+  const wrap = dom.find(sidebar, '.sidebar-nav');
   let active = dom.find(sidebar, 'li.active');
   const doc = document.documentElement;
   const top = ((doc && doc.scrollTop) || document.body.scrollTop) - coverHeight;
@@ -70,43 +71,66 @@ function highlight(path) {
   li.classList.add('active');
   active = li;
 
-  updateTree(active);
+  const parents = dom.findAll(sidebar, 'li.parent');
+  parents.forEach(node => node.classList.remove('parent'));
+
+  let front = dom.find(sidebar, 'li.front');
+  front && front.classList.remove('front');
+  front = findParents(active);
+
+  const toper = front === active ? active : front;
 
   // Scroll into view
   // https://github.com/vuejs/vuejs.org/blob/master/themes/vue/source/js/common.js#L282-L297
   if (!hoverOver && dom.body.classList.contains('sticky')) {
     const height = sidebar.clientHeight;
     const curOffset = 0;
-    const cur = active.offsetTop + active.clientHeight + height / 2;
+    const cur = toper.offsetTop + height / 2;
     const isInView =
-      active.offsetTop >= wrap.scrollTop && cur <= wrap.scrollTop + height;
+      toper.offsetTop >= wrap.scrollTop && cur <= wrap.scrollTop + height;
     const notThan = cur - curOffset < height;
-    const top = isInView ? wrap.scrollTop : notThan ? curOffset : cur - height;
 
-    sidebar.scrollTop = top;
+    sidebar.scrollTop = isInView
+      ? wrap.scrollTop
+      : notThan
+      ? curOffset
+      : cur - height;
   }
-  sidebar.scrollLeft = 9999;
+  // sidebar.scrollLeft = 9999;
 }
 
-function updateTree(active) {
-  let prevParents = dom.findAll('.parent');
-  let prevWifes = dom.findAll('.wife');
-  let prevChanges = dom.findAll('.change');
-  let prevExpands = dom.findAll('.expand');
-
-  prevParents.forEach(node => node.classList.remove('parent'));
-  prevWifes.forEach(node => node.classList.remove('wife'));
-  prevChanges.forEach(node => node.classList.remove('change'));
-  prevExpands.forEach(node => node.classList.remove('expand'));
-
-  let father = active.parentNode;
-  while (father && father.className !== 'app-sub-sidebar') {
-    father.classList.add('parent');
-    father = father.parentNode;
+function findParents(active) {
+  if (!active) {
+    return active;
   }
 
-  let wife = active.lastChild;
-  wife.nodeName === 'UL' && wife.classList.add('wife');
+  let top = active;
+  let node = active.parentNode;
+
+  while (node) {
+    if (node.classList.contains('app-sub-sidebar')) {
+      break;
+    }
+
+    if (node.nodeName === 'UL') {
+      node = node.parentNode;
+      continue;
+    }
+
+    if (node.nodeName === 'LI') {
+      node.classList.add('parent');
+
+      if (node.classList.contains('collapse')) {
+        top = node;
+      }
+
+      node = node.parentNode;
+      continue;
+    }
+  }
+
+  top.classList.add('front');
+  return top;
 }
 
 function getNavKey(path, id) {
@@ -168,24 +192,22 @@ export function scrollIntoView(path, id) {
   }
   const topMargin = config().topMargin;
 
-  let prevSections = dom.findAll('.current');
-  prevSections.forEach(node => node.classList.remove('current'));
-
   const section = dom.find('#' + id);
-  if (section) {
-    section.classList.add('current');
-    scrollTo(section, topMargin);
-  }
 
-  const sidebar = dom.getNode('.sidebar');
-  const active = dom.find(sidebar, 'li.active');
-  active && active.classList.remove('active');
+  section && scrollTo(section, topMargin);
 
   const li = nav[getNavKey(path, id)];
-  if (li) {
-    li.classList.add('active');
-    updateTree(li);
-  }
+  const sidebar = dom.getNode('.sidebar');
+  const active = dom.find(sidebar, 'li.active');
+  const front = dom.find(sidebar, 'li.front');
+  const parents = dom.findAll(sidebar, 'li.parent');
+
+  active && active.classList.remove('active');
+  front && front.classList.remove('front');
+  parents.forEach(node => node.classList.remove('parent'));
+
+  li && li.classList.add('active');
+  findParents(li);
 }
 
 const scrollEl = dom.$.scrollingElement || dom.$.documentElement;

@@ -49,12 +49,7 @@ export function collapse(el) {
       target.nextSibling.classList &&
       target.nextSibling.classList.contains('section-link')
     ) {
-      dom.toggleClass(target, 'change');
-
-      let expand = target.nextSibling.nextSibling;
-      if (expand && expand.nodeName === 'UL') {
-        dom.toggleClass(expand, 'expand');
-      }
+      dom.toggleClass(target.parentNode, 'collapse');
     }
   });
 }

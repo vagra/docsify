@@ -229,8 +229,12 @@ main.hidden
     display grid
 
   li.collapse
-    .app-sub-sidebar
+    > ul
       display none
+
+  li:not(.collapse)
+    > ul
+      display block
 
   ul
     margin 0 0 0 15px
@@ -309,6 +313,7 @@ body.sticky
 for level in 1..108
   .markdown-section h{level}
     display block
+    line-height 2
     &::before
       content     '"H%s"' % level
       font-size   0.6rem
@@ -494,46 +499,40 @@ body.close
     transform rotate(10deg)
 
 
+
+
+
+
 .app-sub-sidebar
 
-  ul
-    display none
-
-  ul.parent,
-  ul.wife,
-  ul.expand
-    display block
-  
-  ul.parent.expand,
-  ul.wife.expand
-    display none
-
-  li span
-    position  absolute
-    font-family Consolas, "Courier New", "Lucida Console", Monaco, Courier, monospace
-    font-size 24px
-    &:after
-        content '\00A0'
-    &.change
+  li
+    > span
       &:after
         content '\00A0'
+        font-size 12px
+        line-height 1em
+        padding 0 6px 0 0
+        float left
 
   li.has-children
     > span
       &:after
-        content '+'
-    > span.change
-      &:after
-        content '-'
-
-  li.parent,
-  li.has-children.active
+        writing-mode vertical-lr
+        content '\276F'
+        font-size 12px
+        line-height 1em
+        padding 12px 0 0 0
+        float left
+  
+  li.has-children.collapse
     > span
       &:after
-        content '-'
-    > span.change
-      &:after
-        content '+'
+        writing-mode horizontal-tb
+        content '\276F'
+        font-size 12px
+        line-height 1em
+        padding 9px 4px 0 2px
+        float left
 
 .current
   span

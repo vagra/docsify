@@ -8,6 +8,6 @@ cypress/integration/examples
 cypress/fixtures/docs
 cypress/screenshots
 cypress/snapshots
-
+docs/kepan
 # exceptions
 !.gitkeep
