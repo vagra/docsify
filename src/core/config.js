@@ -7,7 +7,7 @@ export default function(vm) {
     {
       el: '#app',
       repo: '',
-      maxLevel: 6,
+      maxLevel: 108,
       subMaxLevel: 0,
       loadSidebar: null,
       loadNavbar: null,

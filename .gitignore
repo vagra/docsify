@@ -5,6 +5,6 @@ __diff_output__
 lib/
 node_modules
 themes/
-
+package-lock.json
 # exceptions
 !.gitkeep

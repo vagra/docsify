@@ -290,7 +290,7 @@ export class Compiler {
       }
 
       const tree = this.cacheTree[currentPath] || genTree(toc, level);
-      html = treeTpl(tree, '<ul>{inner}</ul>');
+      html = treeTpl(tree);
       this.cacheTree[currentPath] = tree;
     }
 

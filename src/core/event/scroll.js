@@ -71,12 +71,17 @@ function highlight(path) {
   li.classList.add('active');
   active = li;
 
+  const front = dom.find(sidebar, 'li.front');
+  front && front.classList.remove('front');
+
+  active = findFront(active);
+
   // Scroll into view
   // https://github.com/vuejs/vuejs.org/blob/master/themes/vue/source/js/common.js#L282-L297
   if (!hoverOver && dom.body.classList.contains('sticky')) {
     const height = sidebar.clientHeight;
     const curOffset = 0;
-    const cur = active.offsetTop + active.clientHeight + 40;
+    const cur = active.offsetTop + height / 2;
     const isInView =
       active.offsetTop >= wrap.scrollTop && cur <= wrap.scrollTop + height;
     const notThan = cur - curOffset < height;
@@ -87,6 +92,38 @@ function highlight(path) {
       ? curOffset
       : cur - height;
   }
+}
+
+function findFront(active) {
+  if (!active) {
+    return active;
+  }
+
+  let front = active;
+  let node = active.parentNode;
+
+  while (node) {
+    if (node.classList.contains('app-sub-sidebar')) {
+      break;
+    }
+
+    if (node.nodeName === 'UL') {
+      node = node.parentNode;
+      continue;
+    }
+
+    if (node.nodeName === 'LI') {
+      if (node.classList.contains('collapse')) {
+        front = node;
+      }
+
+      node = node.parentNode;
+      continue;
+    }
+  }
+
+  front.classList.add('front');
+  return front;
 }
 
 function getNavKey(path, id) {
@@ -153,8 +190,13 @@ export function scrollIntoView(path, id) {
   const li = nav[getNavKey(path, id)];
   const sidebar = dom.getNode('.sidebar');
   const active = dom.find(sidebar, 'li.active');
+  const front = dom.find(sidebar, 'li.front');
+
   active && active.classList.remove('active');
+  front && front.classList.remove('front');
+
   li && li.classList.add('active');
+  findFront(li);
 }
 
 const scrollEl = dom.$.scrollingElement || dom.$.documentElement;

@@ -51,7 +51,7 @@ body
   -moz-osx-font-smoothing grayscale
   -webkit-font-smoothing antialiased
   color $color-text
-  font-family 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif
+  font-family Verdana, -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif
   font-size 15px
   letter-spacing 0
   margin 0
@@ -83,6 +83,7 @@ li input[type='checkbox']
   margin 25px 60px 0 0
   position absolute
   right 0
+  font-size 15px
   text-align right
   z-index 10
 
@@ -117,7 +118,7 @@ li input[type='checkbox']
   /* navbar dropdown */
   li
     display inline-block
-    margin 0 1rem
+    margin 0 0.5rem
     padding 5px 0
     position relative
     cursor pointer
@@ -201,6 +202,7 @@ main.hidden
 /* sidebar */
 .sidebar
   border-right 1px solid rgba(0, 0, 0, 0.07)
+  overflow-x auto
   overflow-y auto
   padding 40px 0 0
   position absolute
@@ -228,10 +230,15 @@ main.hidden
   .sidebar-nav
     line-height 2em
     padding-bottom 40px
+    display grid
 
   li.collapse
-    .app-sub-sidebar
+    > ul
       display none
+
+  li:not(.collapse)
+    > ul
+      display block
 
   ul
     margin 0 0 0 15px
@@ -247,6 +254,7 @@ main.hidden
   ul li a
     border-bottom none
     display block
+    margin-left 20px
 
   ul li ul
     padding-left 20px
@@ -272,11 +280,11 @@ main.hidden
   outline none
   padding 10px
   position absolute
-  bottom 0
+  bottom 20px
   left 0
   text-align center
   transition opacity 0.3s
-  width $sidebar-width - 16px
+  width 32px
   z-index 30
   cursor pointer
 
@@ -304,10 +312,30 @@ body.sticky
   left $sidebar-width
   transition left 250ms ease
 
+
+/* support for 108 levels */
+for level in 1..108
+  .markdown-section h{level}
+    display block
+    line-height 2
+    &::before
+      content     '"%s"' % level
+      font-size   0.7rem
+      margin-left -1.4em
+      padding     0 0.2rem
+      border      1px dotted;
+
+for level in 1..108
+  .lv{level}::before
+    content     '"%s"' % level
+    font-size   0.6rem
+    padding     0 0.2rem
+    border      1px dotted;
+
 /* markdown content found on pages */
 .markdown-section
   margin 0 auto
-  max-width 80%
+  max-width 93%
   padding 30px 15px 40px 15px
   position relative
 
@@ -420,7 +448,8 @@ body.close
     overflow-x hidden
 
   .sidebar
-    left - $sidebar-width
+    left -100vw
+    width 100vw
     transition transform 250ms ease-out
 
   .content
@@ -440,16 +469,16 @@ body.close
 
   body.close
     .sidebar
-      transform translateX($sidebar-width)
+      transform translateX(100vw)
 
     .sidebar-toggle
       background-color rgba($color-bg, 0.8)
       transition 1s background-color
-      width $sidebar-width - 16px
+      width 32px
       padding 10px
 
     .content
-      transform translateX($sidebar-width)
+      transform translateX(100vw)
 
     .app-nav, .github-corner
       display none
@@ -470,3 +499,47 @@ body.close
 
   40%, 80%
     transform rotate(10deg)
+
+
+.app-sub-sidebar
+
+  li
+    > span
+      &:after
+        content '\00A0'
+        font-size 12px
+        line-height 1em
+        padding 0 6px 0 0
+        float left
+
+  li.has-children
+    > span
+      &:after
+        writing-mode vertical-lr
+        content '\276F'
+        font-size 12px
+        line-height 1em
+        padding 12px 0 0 0
+        float left
+  
+  li.has-children.collapse
+    > span
+      &:after
+        writing-mode horizontal-tb
+        content '\276F'
+        font-size 12px
+        line-height 1em
+        padding 9px 4px 0 2px
+        float left
+
+  li.front:not(.active)
+    > a
+      border 2px solid var(--theme-color, $color-primary)
+
+.current
+  span
+    color #c94922
+
+.app-name-link
+  img
+    max-height 3em

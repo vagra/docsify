@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Inconsolata|Inconsolata-Bold')
-
 $color-primary = #0074d9
 $color-bg = #fff
 $color-text = #34495e
-$sidebar-width = 16rem
+$sidebar-width = 32rem
 
 @import 'basic/_layout'
 @import 'basic/_coverpage'
@@ -20,10 +18,14 @@ $sidebar-width = 16rem
   li
     list-style none
     margin 0
-    padding 0.2em 0 0.2em 0
 
   ul li ul
     padding 0
+
+  ul li a
+    color #505d6b
+    text-decoration none
+    white-space nowrap
 
   li.active
     a
@@ -31,9 +33,6 @@ $sidebar-width = 16rem
 
     background-color #eee
 
-.markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4, .markdown-section strong
-  color #333
-  font-weight 400
 
 .markdown-section strong
   color #333
@@ -49,12 +48,10 @@ $sidebar-width = 16rem
 
 .markdown-section h1
   font-size 2rem
-  font-weight 500
   margin 0 0 1rem
 
 .markdown-section h2
   font-size 1.8rem
-  font-weight 400
   margin 0 0 1rem 0
   padding 1rem 0 0 0
 
@@ -62,15 +59,17 @@ $sidebar-width = 16rem
   font-size 1.5rem
   margin 52px 0 1.2rem
 
-.markdown-section h4
-  font-size 1.25rem
+.markdown-section h1, .markdown-section h2, .markdown-section h3
+  font-weight 500
 
-.markdown-section h5
-  font-size 1rem
+.markdown-section h4, .markdown-section h5, .markdown-section h6
+  font-weight 500
+  margin 0
+  padding 0
 
-.markdown-section h6
-  color #777
-  font-size 1rem
+.markdown-section p
+  font-family  Georgia, "Courier New", "Times New Roman", "Nimbus Roman No9 L", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", "Source Han Serif CN", STSong, "AR PL New Sung", "AR PL SungtiL GB", NSimSun, SimSun, "TW\-Sung", "WenQuanYi Bitmap Song", "AR PL UMing CN", "AR PL UMing HK", "AR PL UMing TW", "AR PL UMing TW MBE", PMingLiU, MingLiU, serif
+  font-size 18px
 
 .markdown-section figure, .markdown-section p, .markdown-section ul, .markdown-section ol
   margin 1.2em 0
